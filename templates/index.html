@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload</title>
-</head>
-<body>
-    <form action = "/display" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" onchange="form.submit()"/>
-         <br><br>
-         
-         <input type = "reset"/>
-      </form>  
-</body>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style.css">
+		<title>OCR Recognition</title>
+	</head>
+	<body>
+		<div id="main">
+			<div id="header">
+				<h1 id="header-text">OCR Recognition App</h1>
+			</div>
+			<div id="submission">
+				<form action = "/display" method = "POST" enctype = "multipart/form-data">
+	         		<input type = "file" name = "file" onchange="form.submit()"/>
+	         		<br>
+	         		<br>
+	         		<input type = "reset"/>
+	      		</form>  
+			</div>
+		</div>
+	</body>
 </html>
