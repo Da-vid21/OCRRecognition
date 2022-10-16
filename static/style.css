@@ -7,8 +7,21 @@ body {
 	background: linear-gradient(0deg, rgba(153,17,131,1) 0%, rgba(0,140,255,1) 100%);
 	overflow:  hidden;
 }
-#main {
+#drag_drop {
+	width: 100%;
+	text-align: center;
+	border: dashed 5px grey;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+#drag_drop > * {
 
+	font-size: 25px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+#main {
 	width:  50%;
 	position: absolute;
 	left:  50%;

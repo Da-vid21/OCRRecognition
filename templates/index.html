@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="../static/style.css">
 		<title>OCR Recognition</title>
 	</head>
 	<body>
@@ -12,10 +12,12 @@
 			</div>
 			<div id="submission">
 				<form action = "/display" method = "POST" enctype = "multipart/form-data">
-	         		<input type = "file" name = "file" onchange="form.submit()"/>
-	         		<br>
-	         		<br>
-	         		<input type = "reset"/>
+	         		<div id="drag_drop">
+						<input type = "file" name = "file" onchange="form.submit()" ondrop="form.submit()"/>
+						<br>
+						<br>
+						<input type = "reset"/>
+					</div>
 	      		</form>  
 			</div>
 		</div>
