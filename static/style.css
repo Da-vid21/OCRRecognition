@@ -10,14 +10,34 @@ body {
 #drag_drop {
 	width: 100%;
 	text-align: center;
-	border: dashed 5px grey;
+	background: #dededede;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	font-size: x-large;
+}
+#file_input {
+	background-color: red;
+	padding-top: 10%;
+	padding-bottom: 10%;
+	height: 100%;
+}
+#file_input_hidden {
+	visibility: hidden;
+}
+#resetButton {
+	background-color: #aaa;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	width: 75%;
+	border: none;
+	
 }
 #drag_drop > * {
-
+	position: relative;
 	font-size: 25px;
+	left: 50%;
+	transform: translate(-50%);
 	margin-top: 5%;
 	margin-bottom: 5%;
 }
@@ -51,4 +71,11 @@ body {
 }
 #submission > * {
 	margin: 5%;
+}
+#footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: aliceblue;
+	
 }
