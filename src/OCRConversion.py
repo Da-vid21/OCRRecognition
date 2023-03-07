@@ -2,14 +2,12 @@
 **Installation**
 Mac - brew install tesseract
 Ubuntu - sudo apt install tesseract-ocr
+pip install opencv-python for cv2
 
 '''
 
 import pytesseract
-import argparse
-# pip install opencv-python
 import cv2
-import colorama
 from colorama import Fore
 
 def actualConversion(image1):
@@ -17,7 +15,7 @@ def actualConversion(image1):
 
 
 
-    print(Fore.GREEN+ "\nOutput Text:\n")
+    print(Fore.GREEN+ "\nOutput Text:\n" + Fore.RESET)
     print(pytesseract.image_to_string(img))
     return pytesseract.image_to_string(img)
 

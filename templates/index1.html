@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../static/style.css">
+		<title>OCR Recognition</title>
+		
+	</head>
+	<body>
+		<div id="main">
+			<div id="header">
+				<h1 id="header-text">OCR Recognition App</h1>
+			</div>
+			<div id="submission">
+				<form action = "/display" method = "POST" enctype = "multipart/form-data">
+	         		<div id="drag_drop">
+						<label id="file_input" for="file_input_hidden">Upload</label>
+						<input id="file_input_hidden" type = "file" name = "file" onchange="uploadFile()"/>
+						<p id="texts" > Text</p>
+						<br>
+						<br>
+						<button type="button" class="button" onclick="resetText()">
+							<span class="button__text">Reset</span>
+						</button>
+					</div>
+					
+	      		</form>  
+			</div>
+			
+		</div>
+		<script src="../static/index.js"></script>
+	</body>
+</html>

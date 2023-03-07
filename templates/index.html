@@ -1,62 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../static/style.css">
-		<title>OCR Recognition</title>
-		<script>
-			window.addEventListener('load', function() {
-				var dragDropElement = document.getElementById("file_input");
-			
-				['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  					dragDropElement.addEventListener(eventName, function(e) {
-						e.preventDefault();
- 						e.stopPropagation();
-					}, false)
-				});
-
-				dragDropElement.addEventListener("drop", function(event) {
-					var dt = event.dataTransfer;
-					var files = dt.files;
-
-					var url = "/display";
-					var formData = new FormData();
-
-					console.log(files);
-
-					formData.append('file', files[0]);
-
-					fetch(url, {
-						method: 'POST',
-						body: formData
-					}).then(function() {
-						console.log("Posted the file.");
-					}).catch(function(err) {
-						console.log(err);
-					});
-				});
-			});
-		</script>
-	</head>
-	<body>
-		<div id="main">
-			<div id="header">
-				<h1 id="header-text">OCR Recognition App</h1>
-			</div>
-			<div id="submission">
-				<form action = "/display" method = "POST" enctype = "multipart/form-data">
-	         		<div id="drag_drop">
-						<label id="file_input" for="file_input_hidden">Upload</label>
-						<input id="file_input_hidden" type = "file" name = "file" onchange="form.submit()" ondragover="form.submit()"/>
-						<br>
-						<br>
-						<button id="resetButton" type = "reset" style="font-size: 30px;">Reset</button>
-					</div>
-					
-	      		</form>  
-			</div>
-			
-		</div>
-		
-	</body>
+<head>
+    <title>Drag and Drop File Upload</title>
+</head>
+<body>
+    <div id="drop-zone" style="padding: 100px; border-style: solid;">
+        <p id="texts">Drag and drop files here</p>
+        
+    </div>
+    
+    <script src="../static/index2.js"></script>
+</body>
 </html>

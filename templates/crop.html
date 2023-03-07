@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ImageCropping</title>
+    <script src="path/to/cropper.js"></script>
+</head>
+<body style="margin: 100px;">
+    <form id="form" width="body">
+        <input type="file" id="image" accept="image/*">
+        <input type="button" value="Crop" id="crop-button">
+        <input type="submit" value="Submit" id="submit-button" disabled>
+    </form>
+    <script>
+        var form = document.getElementById('form');
+        var image = document.getElementById('image');
+        var cropButton = document.getElementById('crop-button');
+        var submitButton = document.getElementById('submit-button');
+
+        var cropper;
+        var croppedImage;
+
+        image.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+                    document.body.appendChild(img);
+                    cropper = new Cropper(img, {
+                        aspectRatio: 1 / 1,
+                        crop: function(event) {
+                            // get the cropping coordinates
+                            var croppingData = cropper.getData();
+                            // do something with the cropping data
+                        }
+                    });
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        cropButton.addEventListener('click', function() {
+            // remove the current image
+            document.body.removeChild(cropper.getImageData().image);
+            // get the cropped image data
+            croppedImage = cropper.getCroppedCanvas().toDataURL();
+            // create a new image element with the cropped image data
+            var img = document.createElement('img');
+            img.src = croppedImage;
+            document.body.appendChild(img);
+            submitButton.disabled = false;
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // send the cropped image data to the server
+            // for example, using an AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // handle the response from the server here
+                }
+            };
+            xhr.send(JSON.stringify({image: croppedImage}));
+        });
+    </script>
+</
