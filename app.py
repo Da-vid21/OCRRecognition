@@ -6,7 +6,7 @@ import json
 app = Flask(__name__)
 
 # Set the Azure server endpoint
-endpoint = 'http://<azure_server_ip>:<azure_server_port>/ocr'
+endpoint = 'http://127.0.0.1:5000'
 
 # Set the allowed file extensions
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
