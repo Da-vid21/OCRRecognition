@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Drag and Drop File Upload</title>
-</head>
-<body>
-    <div id="drop-zone" style="padding: 100px; border-style: solid;">
-        <p id="texts">Drag and drop files here</p>
-        
-    </div>
-    
-    <script src="../static/index2.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../static/style.css">
+		<title>OCR Recognition</title>
+	</head>
+	<body>
+		<div id="main">
+			<div id="header">
+				<h1 id="header-text">OCR Recognition App</h1>
+			</div>
+			<div id="submission">
+				<form action = "/display" method = "POST" enctype = "multipart/form-data">
+	         		<div id="drag_drop"">
+						<input type="file" id="file_input" onchange="uploadFile()" style="display: none;">
+						<label for="file_input" id="file_input">Upload</label>
+
+						<div class="text-container" title="Output Text">
+							<div class="title">
+								<span id="z-title">Output Text</span>
+							</div>
+							<p id="output-text">Drag and Drop in the box</p>
+							<button type="button" class="copy-button" id="copy-button" onclick="copyToClipboard()">Copy</button>
+						</div>						  
+						<br>
+						<br>
+						<button type="button" class="button" id="resetButton" onclick="resetText()">
+							<span class="button__text">Reset</span>
+						</button>
+						
+						
+					</div>
+					
+	      		</form>  
+			</div>
+			
+		</div>
+		<script>
+			function copyToClipboard() {
+			  var copyText = document.getElementById("texts");
+			  navigator.clipboard.writeText(copyText.innerText);
+			  var overlay = document.getElementById("overlay");
+			  overlay.classList.add("overlay-show");
+			  setTimeout(function() {
+			    overlay.classList.remove("overlay-show");
+			  }, 2000);
+			}
+		</script>
+		<script src="../static/index.js"></script>
+	</body>
 </html>
+

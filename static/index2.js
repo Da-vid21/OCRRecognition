@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
 
         var dt = event.dataTransfer;
         var files = dt.files;
-        var url = "/upload";
+        var url = "/display";
         var formData = new FormData();
         formData.append('file', files[0]);
 
