@@ -3,7 +3,6 @@
 ### Instructions
 
 `source venv/bin/activate`
-[insert text of what this does]
 `python run.py`
 Launch program
  
