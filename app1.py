@@ -32,7 +32,7 @@ def upload_image():
         with open(filename, 'rb') as f:
             image_data = f.read()
         headers = {'Content-Type': 'application/octet-stream'}
-        response = requests.post(endpoint, data=image_data, headers=headers)
+        response = requests.post(endpoint, data=image_data, headers=headers, timeout=60)
         text = response.json()['text']
         return text
     else:
